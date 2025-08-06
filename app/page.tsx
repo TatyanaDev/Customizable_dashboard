@@ -82,7 +82,7 @@ const Dashboard = () => {
                 fullWidth
                 sx={{
                   height: "100px",
-                  backgroundColor: button.color || "gray",
+                  backgroundColor: button?.color || "gray",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
