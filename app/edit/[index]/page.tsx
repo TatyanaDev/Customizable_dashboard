@@ -5,10 +5,8 @@ import { useState, useEffect, ChangeEvent } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { ButtonConfig } from "@/app/page";
 
-const defaultButton = { title: "", link: "", color: "gray" };
-
 const EditButton = () => {
-  const [button, setButton] = useState<ButtonConfig>(defaultButton);
+  const [button, setButton] = useState<ButtonConfig>({ title: "", link: "", color: "red" });
   const [index, setIndex] = useState<number | null>(null);
   const router = useRouter();
   const params = useParams();
@@ -43,6 +41,7 @@ const EditButton = () => {
   };
 
   const handleReset = () => {
+    const defaultButton = { title: "", link: "", color: "gray" };
     setButton(defaultButton);
 
     if (index === null) {

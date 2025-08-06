@@ -19,7 +19,11 @@ const Dashboard = () => {
   useEffect(() => {
     const savedButtons = JSON.parse(localStorage.getItem("buttons") || "[]");
 
-    if (savedButtons.length) {
+    if (savedButtons.length !== 9) {
+      const defaultButtons = Array(9).fill({ title: "", link: "", color: "gray" });
+      localStorage.setItem("buttons", JSON.stringify(defaultButtons));
+      setButtons(defaultButtons);
+    } else {
       setButtons(savedButtons);
     }
   }, []);
@@ -82,7 +86,7 @@ const Dashboard = () => {
                 fullWidth
                 sx={{
                   height: "100px",
-                  backgroundColor: button?.color || "gray",
+                  backgroundColor: button.color,
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
